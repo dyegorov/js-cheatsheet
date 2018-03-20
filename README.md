@@ -1,5 +1,6 @@
 # js-cheatsheet
 
+<<<<<<< HEAD
 ## debounce
 ```
 // Returns a function, that, as long as it continues to be invoked, will not
@@ -29,3 +30,7 @@ var myEfficientFn = debounce(function() {
 window.addEventListener('resize', myEfficientFn);
 ```
 Source: [JavaScript Debounce Function](https://davidwalsh.name/javascript-debounce-function)
+=======
+## Links
+* [es6 cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
+>>>>>>> c60b0b60be582452f508b7b29f7f5d35fcecfaaa
