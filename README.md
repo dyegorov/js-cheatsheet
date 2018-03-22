@@ -93,6 +93,39 @@ function throttle(func, wait, options) {
 };
 ```
 [stackoverflow](https://stackoverflow.com/questions/27078285/simple-throttle-in-js)
+
+## memoize
+```
+function memoize( fn ) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments),
+            hash = "",
+            i = args.length;
+        currentArg = null;
+        while (i--) {
+            currentArg = args[i];
+            hash += (currentArg === Object(currentArg)) ?
+            JSON.stringify(currentArg) : currentArg;
+            fn.memoize || (fn.memoize = {});
+        }
+        return (hash in fn.memoize) ? fn.memoize[hash] :
+        fn.memoize[hash] = fn.apply(this, args);
+    };
+}
+```
+[Faster JavaScript Memoization](https://addyosmani.com/blog/faster-javascript-memoization/)
+```
+_.memoize = function(func, hasher) {
+    var memo = {};
+    hasher || (hasher = _.identity);
+    return function() {
+      var key = hasher.apply(this, arguments);
+      return _.has(memo, key) ? memo[key] : (memo[key] = func.apply(this, arguments));
+    };
+  }; 
+```
+[How underscore memoize is implemented in javascript
+](https://stackoverflow.com/questions/24486856/how-underscore-memoize-is-implemented-in-javascript)
 ## Links
 * [es6 cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
 * [underscore.js](https://underscorejs.org/)
