@@ -33,14 +33,22 @@ Source: [JavaScript Debounce Function](https://davidwalsh.name/javascript-deboun
 ## throttle
 ```
 const throttle = (func, limit) => {
-  let inThrottle
+  let lastFunc
+  let lastRan
   return function() {
-    const args = arguments
     const context = this
-    if (!inThrottle) {
+    const args = arguments
+    if (!lastRan) {
       func.apply(context, args)
-      inThrottle = true
-      setTimeout(() => inThrottle = false, limit)
+      lastRan = Date.now()
+    } else {
+      clearTimeout(lastFunc)
+      lastFunc = setTimeout(function() {
+        if ((Date.now() - lastRan) >= limit) {
+          func.apply(context, args)
+          lastRan = Date.now()
+        }
+      }, limit - (Date.now() - lastRan))
     }
   }
 }
@@ -87,3 +95,4 @@ function throttle(func, wait, options) {
 [stackoverflow](https://stackoverflow.com/questions/27078285/simple-throttle-in-js)
 ## Links
 * [es6 cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
+* [underscore.js](https://underscorejs.org/)
