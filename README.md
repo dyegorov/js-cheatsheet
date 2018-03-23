@@ -1,5 +1,11 @@
 # js-cheatsheet
 
+## simple hash from timestamp
+```
+(+new Date).toString(36);  // "iepii89m"
+```
+[stackoverflow](https://stackoverflow.com/questions/32649704/how-to-generate-hash-from-timestamp)
+
 ## debounce
 ```
 // Returns a function, that, as long as it continues to be invoked, will not
