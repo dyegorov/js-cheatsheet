@@ -135,3 +135,4 @@ _.memoize = function(func, hasher) {
 ## Links
 * [es6 cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
 * [underscore.js](https://underscorejs.org/)
+* [AlgoCasts] (https://github.com/StephenGrider/AlgoCasts)
